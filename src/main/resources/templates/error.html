@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Chat App</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="error-page">
+<div class="error-container">
+    <div class="error-content">
+        <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+
+        <h1>Oops! Something went wrong</h1>
+
+        <p class="error-message" th:if="${error}" th:text="${error}">
+            An unexpected error occurred
+        </p>
+
+        <p class="error-description">
+            We couldn't process your request. This might be due to:
+        </p>
+
+        <ul class="error-reasons">
+            <li>Invalid room ID or username</li>
+            <li>Server connection issues</li>
+            <li>Room doesn't exist</li>
+        </ul>
+
+        <a href="/" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Back to Home
+        </a>
+    </div>
+</div>
+</body>
+</html>
