@@ -5,33 +5,37 @@ The system allows users to create accounts, join chat rooms, and exchange messag
 
 ---
 
+![Login](Screenshots/chatapp_login.png)
+![User Interface](Screenshots/chat_app_ui.png)
+
+
 ## 🚀 Key Features
 
-✅ **Real-Time Messaging**  
+**Real-Time Messaging**  
 Instant text communication using Spring WebSocket (STOMP over SockJS).
 
-✅ **User Authentication**  
+**User Authentication**  
 Secure login and registration system for managing users.
 
-✅ **Chat Rooms**  
+**Chat Rooms**  
 Users can join existing rooms or create new ones dynamically.
 
-✅ **Private Chats**  
+**Private Chats**  
 Start one-on-one conversations with other users.
 
-✅ **Typing Indicators**  
+**Typing Indicators**  
 Real-time feedback when another user is typing.
 
-✅ **Chat History**  
+**Chat History**  
 Persist messages in MongoDB for retrieval on re-login.
 
-✅ **User Presence**  
+**User Presence**  
 Display active/online users in each chat room.
 
-✅ **Notifications**  
+**Notifications**  
 Get alerts when new messages arrive or users join/leave rooms.
 
-✅ **Multimedia Support (Optional)**  
+**Multimedia Support (Optional)**  
 Extendable to support image and file sharing in chat.
 
 ---
@@ -46,7 +50,53 @@ Extendable to support image and file sharing in chat.
 | **Build Tool** | Maven |
 | **Server** | Embedded Tomcat (default) |
 
----
 
-## 🗂️ Project Structure
+## ⚙️ Installation & Setup
+
+### 1️⃣ Prerequisites
+- Java 17+  
+- Maven  
+- MongoDB (running locally on port `27017`)  
+- MongoDB Compass (optional for viewing chat data)
+
+### 2️⃣ Clone the Repository
+```bash
+git clone https://github.com/yourusername/chat-app.git
+cd chat-app
+
+## 3️⃣ Configure Database
+
+Make sure application.properties includes:
+
+spring.data.mongodb.uri=mongodb://localhost:27017/chatapp
+spring.data.mongodb.auto-index-creation=true
+
+## 4️⃣ Run the Application
+mvn spring-boot:run
+
+
+The app will start at 👉 http://localhost:8080
+
+## 💡 How It Works
+
+Users join a chat room (or create one).
+
+Messages are sent to the backend using STOMP over WebSocket.
+
+The backend broadcasts messages to all users subscribed to that room’s topic.
+
+Messages are saved in MongoDB for chat history retrieval.
+
+## 🧠 Learning Outcomes
+
+Implemented WebSocket communication in Spring Boot.
+
+Used STOMP protocol for message routing between clients.
+
+Integrated MongoDB for real-time data persistence.
+
+Designed an interactive chat UI with dynamic updates and typing indicators.
+
+Enhanced understanding of client-server synchronization and asynchronous communication.
+
 
